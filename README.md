@@ -1,9 +1,4 @@
-# Robseq: A Robust Statistical Model for Differential Gene Expression Analysis in RNA-Seq Studies.
-
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-# Robseq
+# Robseq: A Robust Statistical Model for Differential Gene Expression Analysis in RNA-Seq Studies
 
 <!-- badges: start -->
 
