@@ -4,8 +4,6 @@
 
 <!-- badges: end -->
 
-Template for Robseq
-
 ## Installation
 
 You can install the development version from
