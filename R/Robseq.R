@@ -106,7 +106,7 @@ perGene.mod = function(expr, formula, regData, expVar){
 
 #### Main Function ####
 
-fit.Robseq <- function(features,
+Robseq <- function(features,
                        metadata,
                        norm.method = 'tmm',
                        expVar = 'Exposure',
