@@ -4,6 +4,9 @@
 
 <!-- badges: end -->
 
+## Robseq Model Pipeline
+![Pipeline](Robseq%20Data%20Pipeline.png)
+
 ## Installation
 
 You can install the development version from
