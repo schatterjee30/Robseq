@@ -5,7 +5,7 @@
 <!-- badges: end -->
 
 ## Robseq Model Pipeline
-![Pipeline](Robseq%20Data%20Pipeline.png)
+![Pipeline](Pipeline.png)
 
 ## Installation
 
