@@ -105,7 +105,20 @@ perGene.mod = function(expr, formula, regData, expVar){
 }
 
 #### Main Function ####
-
+#' Robseq Function
+#'
+#' @param features Gene Expressions
+#' @param metadata Native Tissue or Tumor
+#' @param norm.method Normalizing method
+#' @param expVar 'Exposure' by default
+#' @param coVars 'NULL' by default
+#' @param parallel 'FALSE' by default
+#' @param ncores '1' by default
+#'
+#' @return output
+#' @export
+#'
+#' @examples
 Robseq <- function(features,
                        metadata,
                        norm.method = 'tmm',
