@@ -11,6 +11,12 @@
 
 You can install the development version from
 [GitHub](https://github.com/) with:
+https://github.com/lmweber/nnSVG
+Before installing Robseq please make sure you have following packages installed to avoid errors :
+
+``` r
+Bioconductor libs (deseq2, edgeR etc)
+```
 
 ``` r
 # install.packages("devtools")
@@ -20,7 +26,7 @@ devtools::install_github("schatterjee30/Robseq")
 ## Example
 
 This is a basic example of the functions in the package.
-https://github.com/lmweber/nnSVG
+
 ``` r
 library(Robseq)
 ## basic example code
