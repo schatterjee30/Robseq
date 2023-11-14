@@ -20,7 +20,7 @@ devtools::install_github("schatterjee30/Robseq")
 ## Example
 
 This is a basic example of the functions in the package.
-
+https://github.com/lmweber/nnSVG
 ``` r
 library(Robseq)
 ## basic example code
