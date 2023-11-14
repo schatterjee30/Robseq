@@ -11,7 +11,7 @@
 
 You can install the development version from
 [GitHub](https://github.com/) with:
-https://github.com/lmweber/nnSVG
+https://github.com/lmweber/nnSVG https://github.com/bvieth/powsimR
 Before installing Robseq please make sure you have following packages installed to avoid errors :
 
 ``` r
