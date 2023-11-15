@@ -2,7 +2,8 @@
 # `Robseq` <a><img src='man/figures/logo.svg' align="right" height="139" /></a>
 
 [![Build Status](https://img.shields.io/badge/build-ok-brightgreen)]([https://example-link-to-build-status-page](https://github.com/schatterjee30/Robseq/blob/main/README.md))
-[![Visits Badge](https://visitor-badge.glitch.me/badge?page_id=schatterjee30.Robseq)](https://github.com/schatterjee30/Robseq)
+[![HitCount](http://hits.dwyl.com/schatterjee30/Robseq.svg)](http://hits.dwyl.com/schatterjee30/Robseq)
+
 
 <!-- [![Downloads](https://cranlogs.r-pkg.org/badges/dearseq?color=blue)](https://www.r-pkg.org/pkg/dearseq) --
 
