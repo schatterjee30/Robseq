@@ -23,6 +23,18 @@ Bioconductor libs (deseq2, edgeR etc)
 devtools::install_github("schatterjee30/Robseq")
 ```
 
+### The table below details the required arguments:
+
+| Parameter     | Default  | Description                                                                                                          |
+|:--------------|:--------:|:---------------------------------------------------------------------------------------------------------------------|
+|  |  |
+|  |  |        
+|  |  |        
+|  |  |        
+|  |  |        
+|  |  |  
+|  |  |    
+
 ## Example
 
 This is a basic example of the functions in the package.
