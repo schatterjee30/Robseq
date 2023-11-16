@@ -1,13 +1,13 @@
 #### Main Function ####
 #' Robseq Function
 #'
-#' @param features Gene Expressions
-#' @param metadata Native Tissue or Tumor
-#' @param norm.method Normalizing method
-#' @param expVar 'Exposure' by default
-#' @param coVars 'NULL' by default
-#' @param parallel 'FALSE' by default
-#' @param ncores '1' by default
+#' @param features A dataframe with gene expression counts in the row and samples in the column.
+#' @param metadata A dataframe with information on the subjects such as disease status, gender and etc.
+#' @param norm.method The normalization method to be used. The user can choose from 5 different methods such as TMM, RLE, CPM, Upper quartile and Qauntile. ‘TMM’ by default.
+#' @param expVar The name of the variable on which the differential expression will be evaluated. If the user provides no name then the metadata should have a column named as exposure which should have information on things such as disease status, treatment conditions or etc. ‘Exposure’ by default.
+#' @param coVars The names of the covariates/confounders that needs to adjusted for in the differential expression analysis. 'NULL' by default
+#' @param parallel If true, the analysis will be performed on multiple cores with faster runtimes.'FALSE' by default
+#' @param ncores The number of cores on which the analysis will be serially performed. The user needs to specify this only when parallel = TRUE.'1' by default
 #'
 #' @return output
 #'
