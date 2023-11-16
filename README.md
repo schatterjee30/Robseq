@@ -1,8 +1,13 @@
+# `Robseq` <a style="position: relative; display: inline-block;"><img src='man/robseq.png' align="right" height="139" style="border-radius: 10%; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"/></a>
 
-# `Robseq` <a><img src='man/figures/logo.svg' align="right" height="139" /></a>
 
-[![Build Status](https://img.shields.io/badge/build-ok-brightgreen)]([https://example-link-to-build-status-page](https://github.com/schatterjee30/Robseq/blob/main/README.md))
-[![HitCount](http://hits.dwyl.com/schatterjee30/Robseq.svg)](http://hits.dwyl.com/schatterjee30/Robseq "Get hits on your repository!")
+
+
+[![Build Status](https://img.shields.io/badge/build-ok-brightgreen)]([https://example-link-to-build-status-page](https://github.com/schatterjee30/Robseq/blob/main/README.md))  &nbsp;
+[![Build Status](https://img.shields.io/badge/build-ok-brightgreen)]([https://example-link-to-build-status-page](https://github.com/schatterjee30/Robseq/blob/main/README.md))  &nbsp;
+[![HitCount](http://hits.dwyl.com/schatterjee30/Robseq.svg)](http://hits.dwyl.com/schatterjee30/Robseq "Get hits on your repository!") 
+ &nbsp;
+[![GitHub stars](https://img.shields.io/github/stars/schatterjee30/Robseq.svg?style=social&color=green)](https://github.com/schatterjee30/Robseq/stargazers)
 
 
 
