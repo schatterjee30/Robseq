@@ -1,4 +1,4 @@
-# `Robseq` <a style="position: relative; display: inline-block;"><img src='man/robseq.png' align="right" height="139"/></a>
+# `Robseq` <a style="position: relative; display: inline-block;"><img src='man/Robseqfinal.png' align="right" height="142"/></a>
 
 
 
@@ -9,6 +9,9 @@
  &nbsp;
 [![GitHub stars](https://img.shields.io/github/stars/schatterjee30/Robseq.svg?style=social&color=green)](https://github.com/schatterjee30/Robseq/stargazers)
 
+## Overview
+
+`Robseq` Robseq: A Robust Statistical Model for Differential Gene Expression Analysis in RNA-Seq Studies
 
 
 <!-- [![Downloads](https://cranlogs.r-pkg.org/badges/dearseq?color=blue)](https://www.r-pkg.org/pkg/dearseq) --
@@ -30,14 +33,27 @@ You can install the development version from
 https://github.com/lmweber/nnSVG https://github.com/bvieth/powsimR
 Before installing Robseq please make sure you have following packages installed to avoid errors :
 
+Bioconductor Libraries needs to be installed manually once:
 ``` r
-Bioconductor libs (deseq2, edgeR etc)
+install.packages("BiocManager")
+BiocManager::install("edgeR")
+BiocManager::install(“DESeq2”)
 ```
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("schatterjee30/Robseq")
 ```
+``` r
+check()
+```
+## Usage
+
+`Robseq Function` Does This
+
+## Arguments
+
+`X Y Z etc` Explain These
 
 ### The table below details the required arguments:
 
