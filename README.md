@@ -7,7 +7,8 @@
 [![Build Status](https://img.shields.io/badge/build-ok-brightgreen)]([https://example-link-to-build-status-page](https://github.com/schatterjee30/Robseq/blob/main/README.md))  &nbsp;
 [![HitCount](http://hits.dwyl.com/schatterjee30/Robseq.svg)](http://hits.dwyl.com/schatterjee30/Robseq "Get hits on your repository!") 
  &nbsp;
-[![GitHub stars](https://img.shields.io/github/stars/schatterjee30/Robseq.svg?style=social&color=green)](https://github.com/schatterjee30/Robseq/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/schatterjee30/Robseq.svg?style=social&color=green&label=Stars&cacheBust=1)](https://github.com/schatterjee30/Robseq/stargazers)
+
 
 ## Overview
 
