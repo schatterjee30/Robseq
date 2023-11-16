@@ -18,7 +18,7 @@
 #'@export
 Robseq <- function(features,
                    metadata,
-                   norm.method = 'tmm',
+                   norm.method = 'TMM',
                    expVar = 'Exposure',
                    coVars = NULL,
                    parallel = FALSE,
@@ -37,10 +37,10 @@ Robseq <- function(features,
 
   #### Normalizing Expression counts ####
 
-  if(norm.method == 'tmm'){
+  if(norm.method == 'TMM'){
     norm.y = suppressMessages(tmm_norm(features, metadata))
     norm.y = log2(norm.y + 0.5)
-  }else if(norm.method == 'rle'){
+  }else if(norm.method == 'RLE'){
     norm.y = suppressMessages(rle_norm(features, metadata))
     norm.y = log2(norm.y + 0.5)
   }else{

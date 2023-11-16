@@ -7,7 +7,7 @@
 Robseq(
   features,
   metadata,
-  norm.method = "tmm",
+  norm.method = "TMM",
   expVar = "Exposure",
   coVars = NULL,
   parallel = FALSE,
@@ -15,19 +15,19 @@ Robseq(
 )
 }
 \arguments{
-\item{features}{Gene Expressions}
+\item{features}{GA dataframe with gene expression counts in the row and samples in the column.}
 
-\item{metadata}{Native Tissue or Tumor}
+\item{metadata}{A dataframe with information on the subjects such as disease status, gender and etc.}
 
-\item{norm.method}{Normalizing method}
+\item{norm.method}{The normalization method to be used. The user can choose from 5 different methods such as TMM, RLE, CPM, Upper quartile and Qauntile. ‘TMM’ by default.}
 
-\item{expVar}{'Exposure' by default}
+\item{expVar}{'The name of the variable on which the differential expression will be evaluated. If the user provides no name then the metadata should have a column named as exposure which should have information on things such as disease status, treatment conditions or etc. ‘Exposure’ by default.}
 
-\item{coVars}{'NULL' by default}
+\item{coVars}{The names of the covariates/confounders that needs to adjusted for in the differential expression analysis. 'NULL' by default}
 
-\item{parallel}{'FALSE' by default}
+\item{parallel}{If true, the analysis will be performed on multiple cores with faster runtimes.'FALSE' by default}
 
-\item{ncores}{'1' by default}
+\item{ncores}{The number of cores on which the analysis will be serially performed. The user needs to specify this only when parallel = TRUE.'1' by default}
 }
 \value{
 output
