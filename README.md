@@ -1,4 +1,4 @@
-# `Robseq` <a style="position: relative; display: inline-block;"><img src='man/robseq.png' align="right" height="139" style="border-radius: 10%; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"/></a>
+# `Robseq` <a style="position: relative; display: inline-block;"><img src='man/robseq.png' align="right" height="139"/></a>
 
 
 
