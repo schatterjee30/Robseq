@@ -29,8 +29,10 @@ Robseq(
 
 \item{ncores}{The number of cores on which the analysis will be serially performed. The user needs to specify this only when parallel = TRUE.'1' by default}
 }
-\value{
-output
+
+
+\details{
+Details Goes Here
 }
 
 \description{
@@ -38,17 +40,21 @@ output
 
 A Robust Statistical Model for Differential Gene Expression Analysis in RNA-Seq Studies
 }
+\value{
+Values goes here
+}
 
 \author{
 
 Authors:
 \itemize{
-  \item Suvo Chatterjee \email{suvchat@iu.edu} [copyright holder]
-  \item Vrushab Hanumesh \email{vvrushav@iu.edu}
-  \item Siddhant Sunil Meshram \email{sidmeshr@iu.edu}
+  \item Suvo Chatterjee, Vrushab Hanumesh, Siddhant Sunil Meshram 
 }
 }
+\reference{
+Reference goes here
 
+}
 \examples{
 \dontrun{Robseq(features, metadata)}
 
