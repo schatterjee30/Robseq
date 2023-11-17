@@ -24,9 +24,9 @@ robust.dge <- function(features,
                        parallel = FALSE,
                        ncores = 1,
                        verbose = FALSE){
-  
+
   #### Creating Regression Pre-requisites ####
-  
+
   start.time <- Sys.time()
   if(is.null(coVars)){
     regData <- metadata[, c(expVar), drop = FALSE]
@@ -35,9 +35,9 @@ robust.dge <- function(features,
   }
   regData[sapply(regData, is.character)] <- lapply(regData[sapply(regData, is.character)], as.factor)
   formula <- as.formula(paste("expr ~ ", paste(colnames(regData), collapse = "+")))
-  
+
   #### Normalizing Expression counts ####
-  
+
   if(norm.method == 'TMM'){
     norm.y = suppressMessages(tmm_norm(features, metadata))
     norm.y = log2(norm.y + 0.5)
@@ -47,9 +47,9 @@ robust.dge <- function(features,
   }else{
     norm.y = data.frame(cpm(features, log = TRUE, prior.count = 1))
   }
-  
+
   #### Apply model ####
-  
+
   if(parallel){
     if(verbose){
       cl <- parallel::makeCluster(ncores)
@@ -76,12 +76,7 @@ robust.dge <- function(features,
       doParallel::registerDoParallel(cl)
       packages <- c('MASS', 'dfadjust')
       exports <- c('perGene.mod')
-      pb <- txtProgressBar(max = nrow(norm.y), style = 3)
-      progress <- function(n) setTxtProgressBar(pb, n)
-      opts <- list(progress = progress)
-      res <- foreach(j = 1:nrow(norm.y), .combine = rbind,
-                     .packages = packages, .options.snow = opts,
-                     .export = exports) %dopar% {
+      res <- foreach(j = 1:nrow(norm.y), .combine = rbind, .packages = packages, .export = exports) %dopar% {
                        expr <- as.numeric(norm.y[j, ])
                        tmpfit <- perGene.mod(expr = expr,
                                              formula = formula,
