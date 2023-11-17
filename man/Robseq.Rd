@@ -48,7 +48,7 @@ Values goes here
 Suvo Chatterjee, Vrushab Hanumesh, Siddhant Sunil Meshram 
 
 }
-\reference{
+\references{
 Reference goes here
 }
 \examples{
