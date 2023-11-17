@@ -36,7 +36,7 @@ Details Goes Here
 }
 
 \description{
-\if{html}{\figure{robseq.png}{options: style='float: right' alt='logo' width='120'}}
+\if{html}{\{Robseq.png}{options: style='float: right' alt='logo' width='120'}}
 
 A Robust Statistical Model for Differential Gene Expression Analysis in RNA-Seq Studies
 }
