@@ -62,6 +62,22 @@ devtools::install_github("schatterjee30/Robseq")
 | parallel | FALSE | If true, the analysis will be performed on multiple cores with faster runtimes.
 | ncores | 1 | The number of cores on which the analysis will be serially performed. The user needs to specify this only when parallel = TRUE.
 
+## Values
+
+`Robseq` outputs has 7 value arguments.
+
+### The table below details the values returned by Robseq:
+
+| Value     | Description                                                                                                              |
+|:--------------|:---------------------------------------------------------------------------------------------------------------------|
+| Genes | Gene that was analysed for differential expression between treatment conditions or disease status
+| Log2FC | The estimated log2 fold change for the genes that were analysed
+| SE | The standard error for the genes that were analysed
+| LCI | The lower confidence interval for the genes that were analysed
+| UCI | The upper confidence interval for the genes that were analysed
+| Pval | The pvalue for the genes that were analysed
+| adjPval | The BH adjustd pvalue after correcting for multipe testing for the genes that were analysed
+
 ## Example
 
 This is a basic example of the functions in the package.
