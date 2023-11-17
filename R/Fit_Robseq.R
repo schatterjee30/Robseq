@@ -16,16 +16,17 @@
 #'\dontrun{Robseq(features, metadata)}
 #'
 #'@export
-Robseq <- function(features,
-                   metadata,
-                   norm.method = 'TMM',
-                   expVar = 'Exposure',
-                   coVars = NULL,
-                   parallel = FALSE,
-                   ncores = 1){
-
+robust.dge <- function(features,
+                       metadata,
+                       norm.method = 'TMM',
+                       expVar = 'Exposure',
+                       coVars = NULL,
+                       parallel = FALSE,
+                       ncores = 1,
+                       verbose = FALSE){
+  
   #### Creating Regression Pre-requisites ####
-
+  
   start.time <- Sys.time()
   if(is.null(coVars)){
     regData <- metadata[, c(expVar), drop = FALSE]
@@ -34,9 +35,9 @@ Robseq <- function(features,
   }
   regData[sapply(regData, is.character)] <- lapply(regData[sapply(regData, is.character)], as.factor)
   formula <- as.formula(paste("expr ~ ", paste(colnames(regData), collapse = "+")))
-
+  
   #### Normalizing Expression counts ####
-
+  
   if(norm.method == 'TMM'){
     norm.y = suppressMessages(tmm_norm(features, metadata))
     norm.y = log2(norm.y + 0.5)
@@ -46,34 +47,62 @@ Robseq <- function(features,
   }else{
     norm.y = data.frame(cpm(features, log = TRUE, prior.count = 1))
   }
-
+  
   #### Apply model ####
-
+  
   if(parallel){
-    cl <- parallel::makeCluster(ncores)
-    doSNOW::registerDoSNOW(cl)
-    packages <- c('MASS', 'dfadjust')
-    exports <- c('perGene.mod', 'expVar', 'coVars')
-    pb <- txtProgressBar(max = nrow(norm.y), style = 3)
-    progress <- function(n) setTxtProgressBar(pb, n)
-    opts <- list(progress = progress)
-    res <- foreach(j = 1:nrow(norm.y), .combine = rbind,
-                   .packages = packages, .options.snow = opts,
-                   .export = exports) %dopar% {
-                     expr <- as.numeric(norm.y[j, ])
-                     tmpfit <- perGene.mod(expr = expr,
-                                           formula = formula,
-                                           regData = regData,
-                                           expVar = expVar)
-                     return(tmpfit)
-                   }
-    close(pb)
-    stopCluster(cl)
+    if(verbose){
+      cl <- parallel::makeCluster(ncores)
+      doSNOW::registerDoSNOW(cl)
+      packages <- c('MASS', 'dfadjust')
+      exports <- c('perGene.mod')
+      pb <- txtProgressBar(max = nrow(norm.y), style = 3)
+      progress <- function(n) setTxtProgressBar(pb, n)
+      opts <- list(progress = progress)
+      res <- foreach(j = 1:nrow(norm.y), .combine = rbind,
+                     .packages = packages, .options.snow = opts,
+                     .export = exports) %dopar% {
+                       expr <- as.numeric(norm.y[j, ])
+                       tmpfit <- perGene.mod(expr = expr,
+                                             formula = formula,
+                                             regData = regData,
+                                             expVar = expVar)
+                       return(tmpfit)
+                     }
+      close(pb)
+      stopCluster(cl)
+    }else{
+      cl <- parallel::makeCluster(ncores)
+      doParallel::registerDoParallel(cl)
+      packages <- c('MASS', 'dfadjust')
+      exports <- c('perGene.mod')
+      pb <- txtProgressBar(max = nrow(norm.y), style = 3)
+      progress <- function(n) setTxtProgressBar(pb, n)
+      opts <- list(progress = progress)
+      res <- foreach(j = 1:nrow(norm.y), .combine = rbind,
+                     .packages = packages, .options.snow = opts,
+                     .export = exports) %dopar% {
+                       expr <- as.numeric(norm.y[j, ])
+                       tmpfit <- perGene.mod(expr = expr,
+                                             formula = formula,
+                                             regData = regData,
+                                             expVar = expVar)
+                       return(tmpfit)
+                     }
+      stopCluster(cl)
+    }
   }else{
-    res <- pbapply(norm.y, 1, function(x) perGene.mod(expr = x,
+    if(verbose){
+      res <- pbapply(norm.y, 1, function(x) perGene.mod(expr = x,
+                                                        formula = formula,
+                                                        regData = regData,
+                                                        expVar = expVar))
+    }else{
+      res <- apply(norm.y, 1, function(x) perGene.mod(expr = x,
                                                       formula = formula,
                                                       regData = regData,
                                                       expVar = expVar))
+    }
     res <- do.call('rbind', res)
   }
 
