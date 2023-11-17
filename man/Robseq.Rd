@@ -15,7 +15,7 @@ Robseq(
 )
 }
 \arguments{
-\item{features}{GA dataframe with gene expression counts in the row and samples in the column.}
+\item{features}{A dataframe with gene expression counts in the row and samples in the column.}
 
 \item{metadata}{A dataframe with information on the subjects such as disease status, gender and etc.}
 
@@ -43,7 +43,7 @@ A Robust Statistical Model for Differential Gene Expression Analysis in RNA-Seq 
 
 Authors:
 \itemize{
-  \item Dr. Suvo Chatterjee \email{suvchat@iu.edu} [copyright holder]
+  \item Suvo Chatterjee \email{suvchat@iu.edu} [copyright holder]
   \item Vrushab Hanumesh \email{vvrushav@iu.edu}
   \item Siddhant Sunil Meshram \email{sidmeshr@iu.edu}
 }
