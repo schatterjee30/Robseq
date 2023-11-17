@@ -45,15 +45,11 @@ Values goes here
 }
 
 \author{
+Suvo Chatterjee, Vrushab Hanumesh, Siddhant Sunil Meshram 
 
-Authors:
-\itemize{
-  \item Suvo Chatterjee, Vrushab Hanumesh, Siddhant Sunil Meshram 
-}
 }
 \reference{
 Reference goes here
-
 }
 \examples{
 \dontrun{Robseq(features, metadata)}
