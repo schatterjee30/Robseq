@@ -21,7 +21,7 @@ Robseq(
 
 \item{norm.method}{The normalization method to be used. The user can choose from 5 different methods such as TMM, RLE, CPM, Upper quartile and Qauntile. ‘TMM’ by default.}
 
-\item{expVar}{'The name of the variable on which the differential expression will be evaluated. If the user provides no name then the metadata should have a column named as exposure which should have information on things such as disease status, treatment conditions or etc. ‘Exposure’ by default.}
+\item{expVar}{The name of the variable on which the differential expression will be evaluated. If the user provides no name then the metadata should have a column named as exposure which should have information on things such as disease status, treatment conditions or etc. ‘Exposure’ by default.}
 
 \item{coVars}{The names of the covariates/confounders that needs to adjusted for in the differential expression analysis. 'NULL' by default}
 
@@ -34,7 +34,7 @@ output
 }
 
 \description{
-\if{html}{\figure{RobseqL.png}{options: style='float: right' alt='logo' width='120'}}
+\if{html}{\Figure{RobseqL.png}{options: style='float: right' alt='logo' width='120'}}
 
 A Robust Statistical Model for Differential Gene Expression Analysis in RNA-Seq Studies
 }
