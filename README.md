@@ -1,4 +1,4 @@
-# `Robseq` <a style="position: relative; display: inline-block;"><img src='man/figure/RobseqLogo.png' align="right" height="142"/></a>
+# `Robseq` <a style="position: relative; display: inline-block;"><img src='man/figure/RobseqLogo.png' align="right" height="150"/></a>
 
    
 
