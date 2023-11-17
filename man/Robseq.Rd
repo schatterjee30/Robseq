@@ -33,8 +33,20 @@ Robseq(
 output
 }
 \description{
+\if{html}{{RobseqL.png}{options: style='float: right' alt='logo' width='120'}}
+
 A Robust Statistical Model for Differential Gene Expression Analysis in RNA-Seq Studies
 }
+
+\author{
+
+Authors:
+\itemize{
+  \item Dr. Suvo Chatterjee \email{suvchat@iu.edu} [copyright holder]
+  \item Vrushab Hanumesh \email{vvrushav@iu.edu}
+  \item Siddhant Sunil Meshram \email{sidmeshr@iu.edu}
+}
+
 \examples{
 \dontrun{Robseq(features, metadata)}
 
