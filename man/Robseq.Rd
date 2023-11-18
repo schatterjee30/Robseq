@@ -11,7 +11,8 @@ Robseq(
   expVar = "Exposure",
   coVars = NULL,
   parallel = FALSE,
-  ncores = 1
+  ncores = 1,
+  verbose = FALSE
 )
 }
 \arguments{
@@ -28,6 +29,8 @@ Robseq(
 \item{parallel}{If true, the analysis will be performed on multiple cores with faster runtimes. 'FALSE' by default}
 
 \item{ncores}{The number of cores on which the analysis will be serially performed. The user needs to specify this only when parallel = TRUE. '1' by default}
+
+\item{verbose}{'FALSE' by default}
 }
 
 
