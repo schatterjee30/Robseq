@@ -45,9 +45,9 @@ rle_norm <- function(features, metadata){
 #### Per-Gene Modeling Function ####
 
 perGene.mod = function(expr, formula, regData, expVar){
-
+  
   ### Fitting RLM ###
-
+  
   regData <- data.frame(expr, regData)
   fit.rlm <- tryCatch({
     fit.rlm <- suppressWarnings(rlm(formula, data = regData))
@@ -55,9 +55,9 @@ perGene.mod = function(expr, formula, regData, expVar){
     fit.rlm <- suppressWarnings(lm(formula, data = regData))
     return(fit.rlm)
   })
-
+  
   ### Estimating BM adjusted SE ###
-
+  
   fit.se <- tryCatch({
     fit.se <- dfadjustSE(fit.rlm)
   }, error = function(err){
@@ -65,9 +65,9 @@ perGene.mod = function(expr, formula, regData, expVar){
     fit.se <- dfadjustSE(fit.lm)
     return(fit.se)
   })
-
+  
   ### Collecting Outputs ###
-
+  
   if(is.list(fit.se)){
     rDF <- as.data.frame(cbind(fit.se$coefficients,
                                "p-value" = 2*stats::pt(-abs(fit.se$coefficients[, "Estimate"] /
@@ -85,10 +85,10 @@ perGene.mod = function(expr, formula, regData, expVar){
     L.CI <- NA
     pval <- NA
   }
-
+  
   ### Summarizing Outputs ###
-
-  est.df <- data.frame(log2FC = log2FC,
+  
+  est.df <- data.frame(log2FC = log2FC, 
                        SE = se,
                        L.CI = L.CI,
                        U.CI = U.CI,
