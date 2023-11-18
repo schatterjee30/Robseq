@@ -61,6 +61,7 @@ devtools::install_github("schatterjee30/Robseq")
 | coVars | NULL | The names of the covariates/confounders that needs to adjusted for in the differential expression analysis.
 | parallel | FALSE | If true, the analysis will be performed on multiple cores with faster runtimes.
 | ncores | 1 | The number of cores on which the analysis will be serially performed. The user needs to specify this only when parallel = TRUE.
+| verbose | FALSE | If true, it will print the progress report.
 
 ## Values
 
