@@ -24,13 +24,13 @@ Robseq(
 
 \item{expVar}{The name of the variable on which the differential expression will be evaluated. If the user provides no name then the metadata should have a column named as exposure which should have information on things such as disease status, treatment conditions or etc. ‘Exposure’ by default.}
 
-\item{coVars}{The names of the covariates/confounders that needs to adjusted for in the differential expression analysis. 'NULL' by default}
+\item{coVars}{The names of the covariates/confounders that needs to adjusted for in the differential expression analysis. 'NULL' by default.}
 
-\item{parallel}{If true, the analysis will be performed on multiple cores with faster runtimes. 'FALSE' by default}
+\item{parallel}{If true, the analysis will be performed on multiple cores with faster runtimes. 'FALSE' by default.}
 
-\item{ncores}{The number of cores on which the analysis will be serially performed. The user needs to specify this only when parallel = TRUE. '1' by default}
+\item{ncores}{The number of cores on which the analysis will be serially performed. The user needs to specify this only when parallel = TRUE. '1' by default.}
 
-\item{verbose}{'FALSE' by default}
+\item{verbose}{If true, it will print the progress report. 'FALSE' by default.}
 }
 
 
