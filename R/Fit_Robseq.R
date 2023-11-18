@@ -8,7 +8,7 @@
 #' @param coVars The names of the covariates/confounders that needs to adjusted for in the differential expression analysis. 'NULL' by default
 #' @param parallel If true, the analysis will be performed on multiple cores with faster runtimes.'FALSE' by default
 #' @param ncores The number of cores on which the analysis will be serially performed. The user needs to specify this only when parallel = TRUE.'1' by default
-#' @param verbose 'FALSE' by default
+#' @param verbose If true, it will print the progress report. 'FALSE' by default
 #'
 #' @return output
 #'
