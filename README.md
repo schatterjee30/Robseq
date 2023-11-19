@@ -98,13 +98,13 @@ library(EnhancedVolcano)
 
 # Loading Example Data
 
-Loading Parkinson gene expression count data
+Loading Alzheimer gene expression count data
 
 ``` r
 load("Alzheimer_counts.RData") 
 ```
 
-Loading Parkinson metadata data
+Loading Alzheimer metadata data
 
 ``` r
 load("Alzheimer_metadata.RData")
@@ -216,4 +216,4 @@ Volcano plot to visualize the DGE results obtained from Robseq
     y = 'adjPval')
 ```
 
-![](robseqexample_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](/man/volcano.ong)<!-- -->
