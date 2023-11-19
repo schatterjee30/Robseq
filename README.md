@@ -216,4 +216,4 @@ Volcano plot to visualize the DGE results obtained from Robseq
     y = 'adjPval')
 ```
 
-![](/man/volcano.ong)<!-- -->
+![](/man/volcano.png)<!-- -->
