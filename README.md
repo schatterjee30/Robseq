@@ -7,7 +7,7 @@ Status](https://img.shields.io/badge/build-ok-brightgreen)](%5Bhttps://example-l
   [![GitHub
 stars](https://img.shields.io/github/stars/schatterjee30/Robseq.svg?style=social&color=green&label=Stars&cacheBust=1)](https://github.com/schatterjee30/Robseq/stargazers)
 
-**Overview**
+# Overview
 
 `Robseq` A Robust Statistical Model for Differential Gene Expression
 Analysis in RNA-Seq Studies
