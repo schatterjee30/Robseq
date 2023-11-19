@@ -80,7 +80,7 @@ devtools::install_github("schatterjee30/Robseq")
 | adjPval | The BH adjustd pvalue after correcting for multipe testing for the genes that were analysed
 
 ## Working Example
-<iframe src="man/your_file.html" width="800" height="600"></iframe>
+
 # Importing libraries
 ```{r}
 library(Robseq)
