@@ -87,7 +87,7 @@ devtools::install_github("schatterjee30/Robseq")
 
 ## Working Example
 
-# Importing libraries
+### Importing libraries
 
 ``` r
 library(Robseq)
@@ -96,7 +96,7 @@ library(doParallel)
 library(EnhancedVolcano)
 ```
 
-# Loading Example Data
+### Loading Example Data
 
 Loading Alzheimer gene expression count data
 
@@ -110,7 +110,7 @@ Loading Alzheimer metadata data
 load("Alzheimer_metadata.RData")
 ```
 
-# Snapshot of data
+### Snapshot of data
 
 A typical bulk RNA-seq gene expression count data frame looks something
 like below. Note, the genes should be in the rows and the samples in
@@ -145,7 +145,7 @@ metadata[1:5, 1:5]
     ## 4 GSM2516809  82             control         III       6.8
     ## 5 GSM2516810  80 Alzheimer's disease           V       5.5
 
-# Preprocessing
+### Preprocessing
 
 A typical preprocessing step is to filter lowly abundant genes. We do so
 using edgeR’s “filterByExpr” function
@@ -161,7 +161,7 @@ paste(length(which(!keep.exprs)), ' lowly expressed genes were filtered out', se
 features <- features[keep.exprs, ]
 ```
 
-# Performing differential expression analysis using Robseq
+### Performing differential expression analysis using Robseq
 
 To perform differential gene expression (DGE) analyses using Robseq
 please use the code below. Note, if your metadata has only the
@@ -183,7 +183,7 @@ fit <- Robseq::robust.dge(features = features,
                           verbose = FALSE)
 ```
 
-# Obtaining results from Robseq
+### Obtaining results from Robseq
 
 After performing DGE analysis you can extract the results table in the
 following manner
@@ -205,7 +205,7 @@ results[1:5,]
     ## 5097    NRN1  0.966 0.122  1.2051156  0.7268844 7.282548e-11 3.011794e-07
     ## 8650   PART1  1.145 0.147  1.4331147  0.8568853 1.171839e-10 3.011794e-07
 
-# Volcano plot to visualize DGE results
+### Volcano plot to visualize DGE results
 
 Volcano plot to visualize the DGE results obtained from Robseq
 
