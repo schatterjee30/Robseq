@@ -21,7 +21,7 @@ Analysis in RNA-Seq Studies
 ## Robseq Model Pipeline
 
 <figure>
-<img src="Pipeline%20Image.png" alt="Pipeline" />
+<img src="Robseq%20Pipeline.png" alt="Pipeline" />
 </figure>
 
 ## Installation
