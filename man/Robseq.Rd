@@ -48,7 +48,7 @@ Values goes here
 }
 
 \author{
-Suvo Chatterjee, Vrushab Hanumesh, Siddhant Sunil Meshram 
+Suvo Chatterjee, Arindam Fadikar, Vrushab Hanumesh, Siddhant Sunil Meshram, Himel Mallick
 
 }
 \references{
