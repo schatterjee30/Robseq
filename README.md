@@ -98,16 +98,16 @@ library(EnhancedVolcano)
 
 ### Loading Example Data
 
-Loading Alzheimer gene expression count data
+Loading Colon cancer gene expression count data
 
 ``` r
-load("Alzheimer_counts.RData") 
+load("Colon Cancer_counts.RData") 
 ```
 
-Loading Alzheimer metadata data
+Loading Colon cancer metadata data
 
 ``` r
-load("Alzheimer_metadata.RData")
+load("Colon Cancer_metadata.RData")
 ```
 
 ### Snapshot of data
@@ -217,3 +217,5 @@ Volcano plot to visualize the DGE results obtained from Robseq
 ```
 
 ![](/man/volcano.png)<!-- -->
+
+### Citation
