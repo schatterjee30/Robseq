@@ -101,7 +101,7 @@ library(EnhancedVolcano)
 Loading Colon cancer data
 
 ``` r
-load("~/Current Path/Colon Cancer.RData") 
+load("~/Current Data Path/Colon Cancer.RData") 
 ```
 
 Extracting Colon cancer gene expression data and metadata
@@ -153,7 +153,7 @@ using edgeR’s “filterByExpr” function
 
 ``` r
 keep.exprs <- filterByExpr(features, group = as.factor(metadata$Exposure))
-paste(length(which(!keep.exprs)), ' lowly expressed genes were filtered out', sep = '')
+
 ```
 
     ## [1] "18625 lowly expressed genes were filtered out"
@@ -176,7 +176,7 @@ we have supplied this three variables to the “coVars” argument
 ``` r
 fit <- Robseq::robust.dge(features = features,
                           metadata = metadata,
-                          norm.method = "TMM",
+                          norm.method = "RLE",
                           expVar =  "Exposure",
                           coVars = NULL,
                           parallel = TRUE,
@@ -200,11 +200,11 @@ results[1:5,]
 ```
 
     ##       Genes log2FC    SE      L.CI      U.CI         Pval      adjPval
-    ## 10982  ETV4  4.841 0.174  5.182034  4.499966 3.292234e-58 5.019669e-54
-    ## 11725 OTOP2 -6.649 0.247 -6.164889 -7.133111 3.551008e-56 2.707111e-52
-    ## 6872  BEST4 -6.383 0.240 -5.912609 -6.853391 7.826482e-56 3.977679e-52
-    ## 9789  KRT80  3.953 0.163  4.272474  3.633526 1.561129e-51 5.950634e-48
-    ## 8877  CLDN1  4.559 0.191  4.933353  4.184647 8.406667e-51 2.563529e-47
+    ## 6872  BEST4 -6.631 0.255 -6.131209 -7.130791 1.565312e-54 1.617267e-50
+    ## 10982  ETV4  5.184 0.202  5.579913  4.788087 2.121424e-54 1.617267e-50
+    ## 11710 OTOP3 -6.227 0.244 -5.748769 -6.705231 1.430501e-53 7.270284e-50
+    ## 11725 OTOP2 -7.246 0.298 -6.661931 -7.830069 2.196497e-51 8.372498e-48
+    ## 14866  SPIB -5.385 0.239 -4.916569 -5.853431 7.877754e-48 2.402242e-44
 
 ### Volcano plot to visualize DGE results
 
