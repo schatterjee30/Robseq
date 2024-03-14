@@ -2,11 +2,11 @@ Package: Robseq
 Title: A Robust Statistical Model for Differential Gene Expression Analysis in RNA-Seq Studies
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre")),
-    person("Another", "Author", , "another.author@example.com", role = "aut", "cre"),
-    person("John", "Doe", , "john.doe@example.com", role = "aut", "cre"),
-    person("Jane", "Smith", , "jane.smith@example.com", role = "aut", "cre"),
-    person("Alex", "Johnson", , "alex.johnson@example.com", role = "aut", "cre")
+    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
+    person("Another", "Author", , "another.author@example.com", role = "aut", "cre")
+    person("John", "Doe", , "john.doe@example.com", role = "aut", "cre")
+    person("Jane", "Smith", , "jane.smith@example.com", role = "aut", "cre")
+    person("Alex", "Johnson", , "alex.johnson@example.com", role = "aut", "cre"),
 
 
 Description: What the package does (one paragraph).
