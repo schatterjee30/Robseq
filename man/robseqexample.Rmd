@@ -1,6 +1,6 @@
 ---
 title: "robseq_example"
-output: html_document
+output: github_document
 date: "2023-11-17"
 ---
 
@@ -17,14 +17,15 @@ library(EnhancedVolcano)
 ```
 
 # Loading Example Data
-Loading Parkinson gene expression count data
+Loading Colon cancer data
 ```{r}
-load("Alzheimer_counts.RData") 
+load("~/Current Data Path/Colon Cancer.RData") 
 ```
 
-Loading Parkinson metadata data
+Extracting Colon cancer gene expression data and metadata
 ```{r}
-load("Alzheimer_metadata.RData")
+features = data$counts
+metadata = data$metadata
 ```
 
 # Snapshot of data
@@ -34,7 +35,7 @@ features[1:5, 1:5]
 ```
 A typical metadata data frame looks something like below. Note, in our pipeline the user must include a column labeled as "Exposure" which should be the variable which will be used by Robseq in performing differential expression analysis. If the user has a different label for the treatment/condition or disease status variable then the user should supply that name via "expVar" argument in Robseq
 ```{r}
-metadata[1:5, 1:5]
+metadata[1:5, ]
 ```
 
 # Preprocessing
@@ -50,7 +51,7 @@ To perform differential gene expression (DGE) analyses using Robseq please use t
 ```{r}
 fit <- Robseq::robust.dge(features = features,
                           metadata = metadata,
-                          norm.method = "TMM",
+                          norm.method = "RLE",
                           expVar =  "Exposure",
                           coVars = NULL,
                           parallel = TRUE,
@@ -76,6 +77,3 @@ Volcano plot to visualize the DGE results obtained from Robseq
     x = 'log2FC',
     y = 'adjPval')
 ```
-
-
-
