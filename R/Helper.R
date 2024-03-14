@@ -33,7 +33,7 @@ rle_norm <- function(features, metadata, coVars = NULL, expVar = 'Exposure'){
     metadata <- metadata[, c(expVar, coVars)]
   }
   formula <- as.formula(paste('~', paste(colnames(metadata), collapse = "+"), sep = ''))
-  x <- suppressMessages(DESeqDataSetFromMatrix(countData = as.matrix(features),
+  x <- suppressMessages(DESeq2::DESeqDataSetFromMatrix(countData = as.matrix(features),
                                                colData = metadata,
                                                design = formula))
   gm_mean <- function(x, na.rm = TRUE){
