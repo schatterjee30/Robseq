@@ -92,22 +92,41 @@ devtools::install_github("schatterjee30/Robseq")
 ``` r
 library(Robseq)
 library(edgeR)
+```
+
+    ## Loading required package: limma
+
+``` r
 library(doParallel)
+```
+
+    ## Loading required package: foreach
+
+    ## Loading required package: iterators
+
+    ## Loading required package: parallel
+
+``` r
 library(EnhancedVolcano)
 ```
 
+    ## Loading required package: ggplot2
+
+    ## Loading required package: ggrepel
+
 ### Loading Example Data
 
-Loading Colon cancer gene expression count data
+Loading Colon cancer data
 
 ``` r
-load("Colon Cancer_counts.RData") 
+load("~/Downloads/RA/Data/Colon Cancer.RData") 
 ```
 
-Loading Colon cancer metadata data
+Extracting Colon cancer gene expression data and metadata
 
 ``` r
-load("Colon Cancer_metadata.RData")
+features = data$counts
+metadata = data$metadata
 ```
 
 ### Snapshot of data
@@ -120,12 +139,12 @@ columns
 features[1:5, 1:5]
 ```
 
-    ##          GSM2516806 GSM2516807 GSM2516808 GSM2516809 GSM2516810
-    ## TSPAN6          652        520        170        380        226
-    ## TNMD              3          3          0          4          4
-    ## DPM1            413        797        131        566        336
-    ## SCYL3           460        423         80        309        116
-    ## C1orf112        203        148         44        143         51
+    ##          GSM4731674 GSM4731675 GSM4731676 GSM4731677 GSM4731678
+    ## TSPAN6          103         44         76        417        630
+    ## TNMD              1          0          0          0         18
+    ## DPM1             86         63         97        173        309
+    ## SCYL3            32         40         77         56         97
+    ## C1orf112         28         35         25         60         55
 
 A typical metadata data frame looks something like below. Note, in our
 pipeline the user must include a column labeled as “Exposure” which
@@ -135,15 +154,15 @@ the treatment/condition or disease status variable then the user should
 supply that name via “expVar” argument in Robseq
 
 ``` r
-metadata[1:5, 1:5]
+metadata[1:5, ]
 ```
 
-    ##       Sample Age            Exposure braak.score rin_score
-    ## 1 GSM2516806  97 Alzheimer's disease           V       6.9
-    ## 2 GSM2516807  97 Alzheimer's disease          IV       7.1
-    ## 3 GSM2516808  87 Alzheimer's disease           V       6.1
-    ## 4 GSM2516809  82             control         III       6.8
-    ## 5 GSM2516810  80 Alzheimer's disease           V       5.5
+    ##       Sample Exposure
+    ## 1 GSM4731674    Tumor
+    ## 2 GSM4731675    Tumor
+    ## 3 GSM4731676    Tumor
+    ## 4 GSM4731677    Tumor
+    ## 5 GSM4731678    Tumor
 
 ### Preprocessing
 
@@ -155,7 +174,7 @@ keep.exprs <- filterByExpr(features, group = as.factor(metadata$Exposure))
 paste(length(which(!keep.exprs)), ' lowly expressed genes were filtered out', sep = '')
 ```
 
-    ## [1] "7254 lowly expressed genes were filtered out"
+    ## [1] "18625 lowly expressed genes were filtered out"
 
 ``` r
 features <- features[keep.exprs, ]
@@ -198,12 +217,12 @@ The results table from Robseq should look something like the following
 results[1:5,]
 ```
 
-    ##        Genes log2FC    SE       L.CI       U.CI         Pval      adjPval
-    ## 223    BAZ1B -0.332 0.041 -0.2516415 -0.4123585 2.817072e-11 3.011794e-07
-    ## 3552 SLC6A12 -1.098 0.139 -0.8255650 -1.3704350 9.860113e-11 3.011794e-07
-    ## 3559   PRMT8  1.218 0.155  1.5217944  0.9142056 9.711422e-11 3.011794e-07
-    ## 5097    NRN1  0.966 0.122  1.2051156  0.7268844 7.282548e-11 3.011794e-07
-    ## 8650   PART1  1.145 0.147  1.4331147  0.8568853 1.171839e-10 3.011794e-07
+    ##       Genes log2FC    SE      L.CI      U.CI         Pval      adjPval
+    ## 10982  ETV4  4.841 0.174  5.182034  4.499966 3.292234e-58 5.019669e-54
+    ## 11725 OTOP2 -6.649 0.247 -6.164889 -7.133111 3.551008e-56 2.707111e-52
+    ## 6872  BEST4 -6.383 0.240 -5.912609 -6.853391 7.826482e-56 3.977679e-52
+    ## 9789  KRT80  3.953 0.163  4.272474  3.633526 1.561129e-51 5.950634e-48
+    ## 8877  CLDN1  4.559 0.191  4.933353  4.184647 8.406667e-51 2.563529e-47
 
 ### Volcano plot to visualize DGE results
 
@@ -215,7 +234,6 @@ Volcano plot to visualize the DGE results obtained from Robseq
     x = 'log2FC',
     y = 'adjPval')
 ```
-
 ![](/man/volcano.png)<!-- -->
 
 ### Citation
