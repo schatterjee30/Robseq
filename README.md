@@ -94,32 +94,20 @@ library(Robseq)
 library(edgeR)
 ```
 
-    ## Loading required package: limma
-
 ``` r
 library(doParallel)
 ```
 
-    ## Loading required package: foreach
-
-    ## Loading required package: iterators
-
-    ## Loading required package: parallel
-
 ``` r
 library(EnhancedVolcano)
 ```
-
-    ## Loading required package: ggplot2
-
-    ## Loading required package: ggrepel
 
 ### Loading Example Data
 
 Loading Colon cancer data
 
 ``` r
-load("~/Downloads/RA/Data/Colon Cancer.RData") 
+load("~/Current Path/Colon Cancer.RData") 
 ```
 
 Extracting Colon cancer gene expression data and metadata
