@@ -39,8 +39,8 @@ rle_norm <- function(features, metadata, coVars = NULL, expVar = 'Exposure'){
   gm_mean <- function(x, na.rm = TRUE){
     exp(sum(log(x[x > 0]), na.rm = na.rm)/length(x))
   }
-  geoMeans <- apply(counts(x), 1, gm_mean)
-  s <- estimateSizeFactors(x,geoMeans = geoMeans)
+  geoMeans <- apply(DESeq2::counts(x), 1, gm_mean)
+  s <- DESeq2::estimateSizeFactors(x,geoMeans = geoMeans)
   s <- s$sizeFactor
   norm.y <- data.frame(t(apply(features, 1, function(x)x/s)))
   return(norm.y)
