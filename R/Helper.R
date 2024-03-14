@@ -26,8 +26,12 @@ tmm_norm <- function(features, metadata){
 }
 
 #### Normalizing using Geometric Means (DESeq2) ####
-
-rle_norm <- function(features, metadata){
+rle_norm <- function(features, metadata, coVars = NULL, expVar = 'Exposure'){
+  if(is.null(coVars)){
+    metadata <- metadata[, c(expVar), drop = FALSE]
+  }else{
+    metadata <- metadata[, c(expVar, coVars)]
+  }
   formula <- as.formula(paste('~', paste(colnames(metadata), collapse = "+"), sep = ''))
   x <- suppressMessages(DESeqDataSetFromMatrix(countData = as.matrix(features),
                                                colData = metadata,
@@ -41,7 +45,7 @@ rle_norm <- function(features, metadata){
   norm.y <- data.frame(t(apply(features, 1, function(x)x/s)))
   return(norm.y)
 }
-
+                               
 #### Per-Gene Modeling Function ####
 
 perGene.mod = function(expr, formula, regData, expVar){
