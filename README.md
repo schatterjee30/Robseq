@@ -43,6 +43,7 @@ Bioconductor Libraries can be installed in the following manner:
 install.packages("BiocManager")
 BiocManager::install("edgeR")
 BiocManager::install("DESeq2")
+install.packages("EnhancedVolcano")
 ```
 
 After installing the dependencies, Robseq can be installed by using
