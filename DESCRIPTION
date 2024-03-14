@@ -7,7 +7,6 @@ Authors@R:
     person("Vrushab", "Hanumesh", , "vvrushab@iu.edu", role = c("aut", "cre")),
     person("Siddhant", "Meshram", , "sidmeshr@iu.edu", role = c("aut", "cre")),
     person("Himel", "Mallick", , "him4004@med.cornell.edu", role = c("aut", "cre")),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: What the package does (one paragraph).
 Depends: R (>= 3.6)
 Imports: doSNOW, dfadjust, MASS
