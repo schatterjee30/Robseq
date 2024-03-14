@@ -3,8 +3,8 @@ Title: A Robust Statistical Model for Differential Gene Expression Analysis in R
 Version: 0.0.0.9000
 Authors@R:c(
     person("Hadley", "Wickham", email = "hadley@posit.co", role = c("aut","cre")),
-    person("Jennifer", "Bryan", email = "jenny@posit.co", role = c("aut","cre")),
-    person("Posit Software, PBC", role = c("aut","cre")))
+    person("Jennifer", "Bryan", email = "jenny@posit.co", role = c("aut")),
+    person("Posit Software, PBC", role = c("aut")))
 
 
 Description: What the package does (one paragraph).
