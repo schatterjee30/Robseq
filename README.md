@@ -92,13 +92,7 @@ devtools::install_github("schatterjee30/Robseq")
 ``` r
 library(Robseq)
 library(edgeR)
-```
-
-``` r
 library(doParallel)
-```
-
-``` r
 library(EnhancedVolcano)
 ```
 
