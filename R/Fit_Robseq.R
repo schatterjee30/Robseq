@@ -19,7 +19,7 @@
 #'@export
 robust.dge <- function(features,
                        metadata,
-                       norm.method = 'TMM',
+                       norm.method = 'RLE',
                        expVar = 'Exposure',
                        coVars = NULL,
                        parallel = FALSE,
