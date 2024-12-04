@@ -10,6 +10,7 @@ Robseq(
   norm.method = "RLE",
   expVar = "Exposure",
   coVars = NULL,
+  filter = FALSE,
   parallel = FALSE,
   ncores = 1,
   verbose = FALSE
@@ -25,6 +26,8 @@ Robseq(
 \item{expVar}{The name of the variable on which the differential expression will be evaluated. If the user provides no name then the metadata should have a column named as exposure which should have information on things such as disease status, treatment conditions or etc. ‘Exposure’ by default.}
 
 \item{coVars}{The names of the covariates/confounders that needs to adjusted for in the differential expression analysis. 'NULL' by default.}
+
+\item{filter}{If true, only genes with sufficiently large counts are retained. 'FALSE' by default.}
 
 \item{parallel}{If true, the analysis will be performed on multiple cores with faster runtimes. 'FALSE' by default.}
 
@@ -153,6 +156,7 @@ fit <- Robseq::robust.dge(features = features,
                           norm.method = "RLE",
                           expVar =  "Exposure",
                           coVars = NULL,
+                          filter = FALSE,
                           parallel = TRUE,
                           ncores = detectCores() - 2,
                           verbose = FALSE)
