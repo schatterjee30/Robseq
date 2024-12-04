@@ -65,6 +65,7 @@ devtools::install_github("schatterjee30/Robseq")
 | norm.method |   RLE    | The normalization method to be used. The user can choose from 5 different methods such as TMM, RLE, CPM, Upper quartile and Qauntile.                                                                                                                               |
 | expVar      | Exposure | The name of the variable on which the differential expression will be evaluated. If the user provides no name then the metadata should have a column named as exposure which should have information on things such as disease status, treatment conditions or etc. |
 | coVars      |   NULL   | The names of the covariates/confounders that needs to adjusted for in the differential expression analysis.                                                                                                                                                         |
+| filter      |  FALSE   | If true, only genes with sufficiently large counts are retained                                                                                                                                                                                                     |
 | parallel    |  FALSE   | If true, the analysis will be performed on multiple cores with faster runtimes.                                                                                                                                                                                     |
 | ncores      |    1     | The number of cores on which the analysis will be serially performed. The user needs to specify this only when parallel = TRUE.                                                                                                                                     |
 | verbose     |  FALSE   | If true, it will print the progress report.                                                                                                                                                                                                                         |
@@ -179,6 +180,7 @@ fit <- Robseq::robust.dge(features = features,
                           norm.method = "RLE",
                           expVar =  "Exposure",
                           coVars = NULL,
+                          filter = FALSE,
                           parallel = TRUE,
                           ncores = detectCores() - 2,
                           verbose = FALSE)
