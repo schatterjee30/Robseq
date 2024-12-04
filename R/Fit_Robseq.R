@@ -6,6 +6,7 @@
 #' @param norm.method The normalization method to be used. The user can choose from 5 different methods such as TMM, RLE, CPM, Upper quartile and Qauntile. ‘TMM’ by default.
 #' @param expVar The name of the variable on which the differential expression will be evaluated. If the user provides no name then the metadata should have a column named as exposure which should have information on things such as disease status, treatment conditions or etc. ‘Exposure’ by default.
 #' @param coVars The names of the covariates/confounders that needs to adjusted for in the differential expression analysis. 'NULL' by default
+#' @param filter If true, only genes with sufficiently large counts are retained. 'FALSE' by default
 #' @param parallel If true, the analysis will be performed on multiple cores with faster runtimes.'FALSE' by default
 #' @param ncores The number of cores on which the analysis will be serially performed. The user needs to specify this only when parallel = TRUE.'1' by default
 #' @param verbose If true, it will print the progress report. 'FALSE' by default
@@ -22,6 +23,7 @@ robust.dge <- function(features,
                        norm.method = 'RLE',
                        expVar = 'Exposure',
                        coVars = NULL,
+                       filter = FALSE,
                        parallel = FALSE,
                        ncores = 1,
                        verbose = FALSE){
@@ -45,8 +47,14 @@ robust.dge <- function(features,
   }else if(norm.method == 'RLE'){
     norm.y = suppressMessages(rle_norm(features, metadata))
     norm.y = log2(norm.y + 0.5)
-  }else{
+  }else if(norm.method == 'CPM'){
     norm.y = data.frame(cpm(features, log = TRUE, prior.count = 1))
+  }else if(norm.method == 'Quantile'){
+    norm.y = suppressMessages(quan_norm(features, metadata))
+    norm.y = log2(norm.y + 0.5)
+  }else if(norm.method == 'UQuantile'){
+    norm.y = suppressMessages(uqrt_norm(features, metadata))
+    norm.y = log2(norm.y + 0.5)
   }
 
   #### Apply model ####
