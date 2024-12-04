@@ -54,6 +54,7 @@ fit <- Robseq::robust.dge(features = features,
                           norm.method = "RLE",
                           expVar =  "Exposure",
                           coVars = NULL,
+                          filter = FALSE,
                           parallel = TRUE,
                           ncores = detectCores() - 2,
                           verbose = FALSE)
