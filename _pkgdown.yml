@@ -1,0 +1,67 @@
+url: https://schatterjee30.github.io/Robseq/
+
+template:
+  bootstrap: 5
+  bootswatch: cosmo
+  bslib:
+    primary: "#0054AD"
+    border-radius: 0.5rem
+    btn-border-radius: 0.25rem
+
+home:
+  title: "Robseq: Robust Differential Gene Expression Analysis"
+  description: >
+    A Robust Statistical Model for Differential Gene Expression Analysis in RNA-Seq Studies
+
+navbar:
+  structure:
+    left:  [intro, reference, articles, news]
+    right: [search, github]
+  components:
+    home:
+      icon: fas fa-home fa-lg
+      href: index.html
+    reference:
+      text: Reference
+      href: reference/index.html
+    articles:
+      text: Articles
+      menu:
+      - text: Getting Started
+        href: articles/robseqexample.html
+    news:
+      text: News
+      href: news/index.html
+    github:
+      icon: fab fa-github fa-lg
+      href: https://github.com/schatterjee30/Robseq/
+
+reference:
+  - title: Main Functions
+    desc: Core functions for differential gene expression analysis
+    contents:
+    - robust.dge
+    - Robseq
+
+figures:
+  dev: grDevices::png
+  dpi: 96
+  dev.args: []
+  fig.ext: png
+  fig.width: 7.2916667
+  fig.height: ~
+  fig.retina: 2
+  fig.asp: 1.618
+  bg: NA
+
+authors:
+  Suvo Chatterjee:
+    href: https://github.com/schatterjee30
+  Arindam Fadikar:
+    href: mailto:afadikar@anl.gov
+  Vrushab Hanumesh:
+    href: mailto:vvrushab@iu.edu
+  Siddhant Meshram:
+    href: mailto:sidmeshr@iu.edu
+  Himel Mallick:
+    href: mailto:him4004@med.cornell.edu
