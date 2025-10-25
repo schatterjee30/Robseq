@@ -1,0 +1,118 @@
+---
+title: "Getting Started with Robseq"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started with Robseq}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Importing libraries
+```{r eval=FALSE}
+library(Robseq)
+library(edgeR)
+library(doParallel)
+library(EnhancedVolcano)
+```
+
+# Loading Example Data
+Loading Colon cancer data
+```{r eval=FALSE}
+load("~/Current Data Path/Colon Cancer.RData") 
+```
+
+Extracting Colon cancer gene expression data and metadata
+```{r eval=FALSE}
+features = data$counts
+metadata = data$metadata
+```
+
+# Snapshot of data
+A typical bulk RNA-seq gene expression count data frame looks something like below. Note, the genes should be in the rows and the samples in columns
+```{r eval=FALSE}
+features[1:5, 1:5]
+```
+
+```
+##          GSM4731674 GSM4731675 GSM4731676 GSM4731677 GSM4731678
+## TSPAN6          103         44         76        417        630
+## TNMD              1          0          0          0         18
+## DPM1             86         63         97        173        309
+## SCYL3            32         40         77         56         97
+## C1orf112         28         35         25         60         55
+```
+
+A typical metadata data frame looks something like below. Note, in our pipeline the user must include a column labeled as "Exposure" which should be the variable which will be used by Robseq in performing differential expression analysis. If the user has a different label for the treatment/condition or disease status variable then the user should supply that name via "expVar" argument in Robseq
+```{r eval=FALSE}
+metadata[1:5, ]
+```
+
+```
+##       Sample Exposure
+## 1 GSM4731674    Tumor
+## 2 GSM4731675    Tumor
+## 3 GSM4731676    Tumor
+## 4 GSM4731677    Tumor
+## 5 GSM4731678    Tumor
+```
+
+# Preprocessing
+A typical preprocessing step is to filter lowly abundant genes. We do so using edgeR's "filterByExpr" function
+```{r eval=FALSE}
+keep.exprs <- filterByExpr(features, group = as.factor(metadata$Exposure))
+paste(length(which(!keep.exprs)), ' lowly expressed genes were filtered out', sep = '')
+features <- features[keep.exprs, ]
+```
+
+```
+## [1] "18625 lowly expressed genes were filtered out"
+```
+
+# Performing differential expression analysis using Robseq
+To perform differential gene expression (DGE) analyses using Robseq please use the code below. Note, if your metadata has only the "Exposure" variable (such as treatment groups, conditions, disease status, and etc.) set the "coVars" argument to "NULL". However, in this working example our metadata contained three covariates such as "post-mortem interval (pmi)", "rna integrity number (rin)" and "age at death" which needed to be adjusted for in our DGE analysis. Therefore, we have supplied this three variables to the "coVars" argument
+```{r eval=FALSE}
+fit <- Robseq::robust.dge(features = features,
+                          metadata = metadata,
+                          norm.method = "RLE",
+                          expVar =  "Exposure",
+                          coVars = NULL,
+                          filter = FALSE,
+                          parallel = TRUE,
+                          ncores = detectCores() - 2,
+                          verbose = FALSE)
+```
+
+# Obtaining results from Robseq
+After performing DGE analysis you can extract the results table in the following manner
+```{r eval=FALSE}
+results <- fit$res
+```
+
+The results table from Robseq should look something like the following
+```{r eval=FALSE}
+results[1:5,]
+```
+
+```
+##       Genes log2FC    SE      L.CI      U.CI         Pval      adjPval
+## 6872  BEST4 -6.631 0.255 -6.131209 -7.130791 1.565312e-54 1.617267e-50
+## 10982  ETV4  5.184 0.202  5.579913  4.788087 2.121424e-54 1.617267e-50
+## 11710 OTOP3 -6.227 0.244 -5.748769 -6.705231 1.430501e-53 7.270284e-50
+## 11725 OTOP2 -7.246 0.298 -6.661931 -7.830069 2.196497e-51 8.372498e-48
+## 14866  SPIB -5.385 0.239 -4.916569 -5.853431 7.877754e-48 2.402242e-44
+```
+
+# Volcano plot to visualize DGE results
+Volcano plot to visualize the DGE results obtained from Robseq
+```{r eval=FALSE}
+  EnhancedVolcano(results,
+    lab = results$Genes,
+    x = 'log2FC',
+    y = 'adjPval')
+```
+
+![Volcano Plot](../man/volcano.png)
