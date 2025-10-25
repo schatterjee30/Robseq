@@ -12,8 +12,12 @@ home:
   title: "Robseq: Robust Differential Gene Expression Analysis"
   description: >
     A Robust Statistical Model for Differential Gene Expression Analysis in RNA-Seq Studies
+  links:
+  - text: Browse source code
+    href: https://github.com/schatterjee30/Robseq
 
 navbar:
+  logo: man/figures/RobseqLogo.png
   structure:
     left:  [intro, reference, articles, news]
     right: [search, github]
@@ -41,7 +45,6 @@ reference:
     desc: Core functions for differential gene expression analysis
     contents:
     - robust.dge
-    - Robseq
 
 figures:
   dev: grDevices::png
