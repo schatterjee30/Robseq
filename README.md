@@ -221,3 +221,5 @@ Volcano plot to visualize the DGE results obtained from Robseq
 ![](/man/volcano.png)<!-- -->
 
 # Citation
+
+Chatterjee, S., Fadikar, A., Hanumesh, V., Meshram, S.S., Zoh, R.S., Ma, S., Arunkumar, G. and Mallick, H., 2024. Group Heteroscedasticity-A Silent Saboteur of Power and False Discovery in RNA-Seq Differential Expression. bioRxiv, pp.2024-04.
