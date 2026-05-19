@@ -39,6 +39,13 @@ robust.dge <- function(features,
   regData[sapply(regData, is.character)] <- lapply(regData[sapply(regData, is.character)], as.factor)
   formula <- as.formula(paste("expr ~ ", paste(colnames(regData), collapse = "+")))
 
+  #### Filtering ####
+
+  if(filter){
+    keep.exprs <- filterByExpr(features, group = as.factor(metadata$Exposure))
+    features <- features[keep.exprs, ]
+  }
+
   #### Normalizing Expression counts ####
 
   if(norm.method == 'TMM'){
